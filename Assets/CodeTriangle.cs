@@ -6,6 +6,7 @@ public class CodeTriangle : MonoBehaviour
 {
     private Mesh customMesh;
 
+    Vector3[] verts = new Vector3[3];
     void Start()
     {
         // First, let's create a new mesh
@@ -13,7 +14,7 @@ public class CodeTriangle : MonoBehaviour
 
         // Vertices
         // locations of vertices
-        var verts = new Vector3[3];
+        //var verts = new Vector3[3];
 
         verts[0] = new Vector3(0, 0, 0);
         verts[1] = new Vector3(0, 1, 0);
@@ -66,6 +67,15 @@ public class CodeTriangle : MonoBehaviour
         if (customMesh != null)
         {
             Destroy(customMesh);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        foreach (var vert in verts)
+        {
+            Gizmos.DrawSphere(vert + transform.position, .05f);
         }
     }
 }

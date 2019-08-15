@@ -6,6 +6,7 @@ public class CodeQuad : MonoBehaviour
 {
     private Mesh customMesh;
 
+    Vector3[] verts = new Vector3[4];
     void Start()
     {
         // First, let's create a new mesh
@@ -13,12 +14,11 @@ public class CodeQuad : MonoBehaviour
 
         // Vertices
         // locations of vertices
-        var verts = new Vector3[4];
 
         verts[0] = new Vector3(0, 0, 0);
         verts[1] = new Vector3(0, 1, 0);
-        verts[2] = new Vector3(1, 0, 0);
-        verts[3] = new Vector3(1, 1, 0);
+        verts[2] = new Vector3(1, 1, 0);
+        verts[3] = new Vector3(1, 0, 0);
         mesh.vertices = verts;
 
         // Indices
@@ -33,9 +33,9 @@ public class CodeQuad : MonoBehaviour
         indices[1] = 1;
         indices[2] = 2;
 
-        indices[3] = 1;
-        indices[4] = 3;
-        indices[5] = 2;
+        indices[3] = 0;
+        indices[4] = 2;
+        indices[5] = 3;
 
         mesh.triangles = indices;
 
@@ -61,9 +61,9 @@ public class CodeQuad : MonoBehaviour
 
         UVs[0] = new Vector2(0, 0);
         UVs[1] = new Vector2(0, 1);
-        UVs[2] = new Vector2(1, 0);
+        UVs[2] = new Vector2(1, 1);
  
-        UVs[3] = new Vector2(0, 0);
+        UVs[3] = new Vector2(1, 0);
 
         mesh.uv = UVs;
 
@@ -77,6 +77,15 @@ public class CodeQuad : MonoBehaviour
         if (customMesh != null)
         {
             Destroy(customMesh);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        foreach (var vert in verts)
+        {
+            Gizmos.DrawSphere(vert + transform.position, .05f);
         }
     }
 }

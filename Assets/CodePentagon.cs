@@ -84,6 +84,13 @@ public class CodePentagon : MonoBehaviour
         UVs[4] = new Vector2(0, 0);
         UVs[5] = new Vector2(0, 0);
 
+        UVs[0] = new Vector3(0, 0, 0);
+        UVs[1] = new Vector3(0, 1, 0);
+        UVs[2] = new Vector3(Mathf.Cos((Mathf.PI / 180) * 18), Mathf.Sin((Mathf.PI / 180) * 18), 0);
+        UVs[3] = new Vector3(Mathf.Cos((Mathf.PI / 180) * -54), Mathf.Sin((Mathf.PI / 180) * -54), 0);
+        UVs[4] = new Vector3(-Mathf.Cos((Mathf.PI / 180) * -54), Mathf.Sin((Mathf.PI / 180) * -54), 0);
+        UVs[5] = new Vector3(-Mathf.Cos((Mathf.PI / 180) * 18), Mathf.Sin((Mathf.PI / 180) * 18), 0);
+
         mesh.uv = UVs;
 
         var filter = GetComponent<MeshFilter>();
@@ -101,9 +108,10 @@ public class CodePentagon : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.magenta;
         foreach (var vert in verts)
         {
-            Gizmos.DrawSphere(vert + transform.position, .1f);
+            Gizmos.DrawSphere(vert + transform.position, .05f);
         }
     }
 }

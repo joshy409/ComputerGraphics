@@ -60,9 +60,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CodeCube.cs" />
+    <Compile Include="Assets\CodeCubeUV.cs" />
     <Compile Include="Assets\CodePentagon.cs" />
     <Compile Include="Assets\CodeQuad.cs" />
     <Compile Include="Assets\CodeTriangle.cs" />
+    <Compile Include="Assets\UVanimation.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/s189080/Documents/ComputerGraphics/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
